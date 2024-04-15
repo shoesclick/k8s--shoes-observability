@@ -5,7 +5,7 @@ metadata:
   namespace: monitoracao
   annotations:
       prometheus.io/scrape: 'true'
-      prometheus.io/port:   '9000'
+      prometheus.io/port:   '9090'
   
 spec:
   selector: 
@@ -13,4 +13,4 @@ spec:
   type: LoadBalancer
   ports:
     - port: 9090
-      targetPort: 9000
+      targetPort: 9090
