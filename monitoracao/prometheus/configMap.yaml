@@ -43,7 +43,7 @@ data:
             regex: 'api--.|service--.|server--.'
             action: keep
           - source_labels: [__meta_kubernetes_service_label_port]
-            regex: '5000|8888|8762'
+            regex: '9190'
             action: keep
 
       - job_name: 'login-services'
