@@ -32,44 +32,27 @@ data:
 
     scrape_configs:
     
-      - job_name: 'apis-services'
-        kubernetes_sd_configs:
-          - role: endpoints
-            namespaces:
-              names:
-                - shoes-eks
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_service_label_app]
-            regex: 'api--.|service--.|server--.'
-            action: keep
-          - source_labels: [__meta_kubernetes_service_label_port]
-            regex: '9190'
-            action: keep
-
-      - job_name: 'login-services'
-        kubernetes_sd_configs:
-          - role: endpoints
-            namespaces:
-              names:
-                - ns-login
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_service_label_app]
-            regex: 'provider--.'
-            action: keep
-          - source_labels: [__meta_kubernetes_service_label_port]
-            regex: '7080'
-            action: keep
-
-      - job_name: 'infra-services'
-        kubernetes_sd_configs:
-          - role: endpoints
-            namespaces:
-              names:
-                - ns-infra
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_service_name]
-            regex: 'mysql|kafka-broker|redis|schema-registry|zoopecker'
-            action: keep
-          - source_labels: [__meta_kubernetes_service_label_port]
-            regex: '3306|9092|6379|8081|2181'
-            action: keep
+      - job_name: server--discovery-stack
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-server--discovery-stack.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: server--discovery-stack
+    
+      - job_name: server--config-service
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-server--config-service.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: server--config-service
+    
+    
+      - job_name: api--customer
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-api--customer.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: api--customer
