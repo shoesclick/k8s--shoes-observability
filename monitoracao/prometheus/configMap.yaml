@@ -64,3 +64,11 @@ data:
             labels:
               application: api--product
     
+      - job_name: bff--site-shoes
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-bff--site-shoes.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: bff--site-shoes
+    
