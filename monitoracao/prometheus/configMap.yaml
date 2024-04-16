@@ -56,3 +56,12 @@ data:
           - targets: [ 'svc-api--customer.shoes-eks.svc.cluster.local:9190' ]
             labels:
               application: api--customer
+    
+      - job_name: api--product
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-api--product.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: api--product
+    
