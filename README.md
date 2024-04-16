@@ -20,7 +20,7 @@ kubectl create -f grafana/service.yaml
 kubectl create -f grafana/namespace.yaml
 ```
 
-Depois acesse http://<ip-load-balancer>:32000/ (Grafana)
+Depois acesse http://<ip-load-balancer>:3000/ (Grafana)
 
 Usuario: admin
 
