@@ -79,3 +79,19 @@ data:
           - targets: [ 'svc-bff--site-shoes.shoes-eks.svc.cluster.local:9190' ]
             labels:
               application: bff--site-shoes
+    
+      - job_name: service--notification
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-service--notification.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: service--notification
+    
+      - job_name: service--payment
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-service--payment.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: service--payment
