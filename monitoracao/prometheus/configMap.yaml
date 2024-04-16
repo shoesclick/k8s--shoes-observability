@@ -64,6 +64,14 @@ data:
             labels:
               application: api--product
     
+      - job_name: api--order
+        scrape_interval: 5s
+        metrics_path: /actuator/prometheus
+        static_configs:
+          - targets: [ 'svc-api--order.shoes-eks.svc.cluster.local:9190' ]
+            labels:
+              application: api--order
+    
       - job_name: bff--site-shoes
         scrape_interval: 5s
         metrics_path: /actuator/prometheus
@@ -71,4 +79,3 @@ data:
           - targets: [ 'svc-bff--site-shoes.shoes-eks.svc.cluster.local:9190' ]
             labels:
               application: bff--site-shoes
-    
