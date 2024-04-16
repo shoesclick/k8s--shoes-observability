@@ -46,8 +46,7 @@ data:
         static_configs:
           - targets: [ 'svc-server--config-service.shoes-eks.svc.cluster.local:9190' ]
             labels:
-              application: server--config-service
-    
+              application: server--config-service    
     
       - job_name: api--customer
         scrape_interval: 5s
