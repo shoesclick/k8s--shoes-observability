@@ -5,10 +5,5 @@ metadata:
   namespace: monitoracao
 data:
   COLLECTOR_OTLP_ENABLED: "true"
-  BADGER_EPHEMERAL: "false"
-  SPAN_STORAGE_TYPE: "badger"
-  BADGER_DIRECTORY_VALUE: "/badger/data"
-  BADGER_DIRECTORY_KEY: "/badger/key"
-  COLLECTOR_ZIPKIN_HOST_PORT: ":9411"
   MEMORY_MAX_TRACES: "50000"
   QUERY_BASE_PATH: "/jaeger"
