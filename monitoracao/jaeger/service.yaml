@@ -9,7 +9,7 @@ spec:
   type: LoadBalancer
   ports:
     - name: http-query
-      port: 80
+      port: 16686
       protocol: TCP
       targetPort: 16686
     - name: grpc-query
