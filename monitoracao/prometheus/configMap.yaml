@@ -95,3 +95,11 @@ data:
           - targets: [ 'svc-service--payment.shoes-eks.svc.cluster.local:9190' ]
             labels:
               application: service--payment
+    
+      - job_name: provider--shoesclick-login
+        scrape_interval: 5s
+        metrics_path: /auth/metrics
+        static_configs:
+          - targets: [ 'svc-login.ns-login.svc.cluster.local:7080' ]
+            labels:
+              application: provider--shoesclick-login
