@@ -4,7 +4,8 @@ deliveryPipeline {
 
     package_manager = [
                'Prometheus':'monitoracao/prometheus',
-               'Grafana':'monitoracao/grafana'
+               'Grafana':'monitoracao/grafana',
+               'Jaeger':'monitoracao/jaeger'
                ]
 
 }
