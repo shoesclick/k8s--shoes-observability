@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin
+  namespace: monitoracao
+  labels:
+    app: zipkin
+spec:
+  selector:
+    matchLabels:
+      app: zipkin
+  template:
+    metadata:
+      labels:
+        app: zipkin
+    spec:
+      containers:
+        - name: zipkin
+          image: "openzipkin/zipkin"
+          envFrom:
+            - configMapRef:
+                name: zipkin-configmap
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 9411
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 9411

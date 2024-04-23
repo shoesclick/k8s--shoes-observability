@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zipkin-configmap
+  namespace: monitoracao
+data:
+  QUERY_BASE_PATH: "/zipkin"

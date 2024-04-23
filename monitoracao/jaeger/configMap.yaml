@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: jaeger-configmap
-  namespace: monitoracao
-data:
-  COLLECTOR_OTLP_ENABLED: "true"
-  MEMORY_MAX_TRACES: "50000"
-  QUERY_BASE_PATH: "/jaeger"
